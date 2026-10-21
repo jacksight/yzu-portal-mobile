@@ -35,7 +35,7 @@
   // The bundle named at build time. (The site keeps old bundles, so a yzu.js the
   // CDN still caches from an earlier deploy loads fine too.)
   var s = document.createElement('script');
-  s.src = 'https://jacksight.github.io/yzu-portal-mobile/_expo/static/js/web/index-a76ab0a0897a923ea50ea9171a794fec.js';
+  s.src = 'https://jacksight.github.io/yzu-portal-mobile/_expo/static/js/web/index-b639714245f3b06f45dbf7be09269bac.js';
   s.onerror = function () { alert('載入失敗，請檢查網路後重新整理頁面。'); };
   document.body.appendChild(s);
 })();
