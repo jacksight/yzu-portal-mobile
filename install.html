@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>元智 Portal 手機版 · YZU Portal Mobile</title>
+<style>
+  :root { --bg:#fff; --fg:#111; --muted:#666; --card:#f3f5f8; --accent:#0a6cff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#eee; --muted:#aaa; --card:#1d1f23; --accent:#4b9bff; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system,"PingFang TC",sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:24px 16px 48px; }
+  .top { display:flex; justify-content:flex-end; margin-bottom:8px; }
+  .lang { font:inherit; font-size:14px; padding:4px 12px; border:1px solid var(--accent); border-radius:14px; background:none; color:var(--accent); }
+  h1 { font-size:24px; margin:0 0 4px; }
+  h2 { font-size:19px; margin:28px 0 4px; }
+  p.lead { color:var(--muted); margin:0 0 20px; }
+  ol { padding-left:22px; } li { margin:10px 0; }
+  .card { background:var(--card); border-radius:14px; padding:14px; margin:16px 0; }
+  .note { font-size:14px; color:var(--muted); }
+  /* One language at a time: <html data-lang="en"> shows the English blocks. */
+  html[data-lang="en"] [lang="zh-Hant"], html:not([data-lang="en"]) [lang="en"] { display:none; }
+</style>
+<script>
+  // English for ?lang=en or a non-Chinese phone; the button switches and remembers.
+  (function () {
+    var q = /[?&]lang=(en|zh)/.exec(location.search), saved = null;
+    try { saved = localStorage.getItem('installLang'); } catch (e) {}
+    var lang = q ? q[1] : saved || (/^zh/i.test(navigator.language || '') ? 'zh' : 'en');
+    document.documentElement.setAttribute('data-lang', lang);
+  })();
+</script>
+</head>
+<body>
+<main>
+  <div class="top">
+    <button class="lang" type="button" onclick="var e=document.documentElement,n=e.getAttribute('data-lang')==='en'?'zh':'en';e.setAttribute('data-lang',n);try{localStorage.setItem('installLang',n)}catch(x){}">
+      <span lang="zh-Hant">English</span><span lang="en">中文</span>
+    </button>
+  </div>
+
+  <section lang="zh-Hant">
+    <h1>元智 Portal 手機版</h1>
+    <p class="lead">裝一次之後，用 iPhone 的 Safari 登入 Portal 就會自動變成手機好用的介面（Android 請看下面）。帳號密碼只會在學校自己的登入頁輸入；只匿名統計使用人數，不含學號或任何個人資料。</p>
+    <ol>
+      <li>在 App Store 下載免費的 <a href="https://apps.apple.com/app/userscripts/id1463298887">Userscripts</a>。</li>
+      <li>到 iPhone 的<strong>設定 → App → Safari → 延伸功能 → Userscripts</strong>，打開它，並把<strong>所有網站</strong>設為<strong>允許</strong>（至少要允許 portalx.yzu.edu.tw 和 portalfun.yzu.edu.tw）。</li>
+      <li>用 Safari 打開下面的連結，網址列左邊點「ᴀA」或拼圖圖示 → Userscripts → 按<strong>安裝</strong>。</li>
+    </ol>
+    <div class="card"><a href="yzu.user.js">安裝腳本：yzu.user.js</a></div>
+    <p class="note">之後用 Safari <a href="https://portalx.yzu.edu.tw/PortalSocialVB/Login.aspx">登入 Portal</a> 就會自動出現手機版。想看原本的網頁時，App 裡的「原頁面」會開一個不會被換掉的分頁。介面右上角可以切換中文／English。</p>
+    <p class="note">成績、課表、考試、出缺勤、課程內容、全校課程、社團、設備／場地預約在學校另一個網站（portalfun）上，會開新分頁顯示手機版，所以第 2 步也要允許 portalfun.yzu.edu.tw。</p>
+    <h2>Android</h2>
+    <ol>
+      <li>用手機下載 App：<a href="https://github.com/jacksight/yzu-portal-mobile/releases/latest/download/yzu-portal.apk">yzu-portal.apk</a>（約 75 MB）。</li>
+      <li>打開下載好的檔案。Android 會詢問是否允許從這個來源安裝，選<strong>允許</strong>；若出現 Play 保護機制的提醒，選<strong>仍要安裝</strong>（這是因為 App 不是從 Play 商店下載）。</li>
+      <li>打開「元智Portal」，在學校的登入頁登入即可。之後的更新會自動下載，不用重新安裝。</li>
+    </ol>
+  </section>
+
+  <section lang="en">
+    <h1>YZU Portal Mobile</h1>
+    <p class="lead">Install it once, and the YZU Portal turns into a phone-friendly app whenever you log in with Safari on your iPhone (Android: see below). You only ever type your password on the school's own login page. Usage is counted anonymously — no student ID or personal data.</p>
+    <ol>
+      <li>Get the free <a href="https://apps.apple.com/app/userscripts/id1463298887">Userscripts</a> app from the App Store.</li>
+      <li>On your iPhone go to <strong>Settings → Apps → Safari → Extensions → Userscripts</strong>, turn it on, and set <strong>All Websites</strong> to <strong>Allow</strong> (at least portalx.yzu.edu.tw and portalfun.yzu.edu.tw).</li>
+      <li>Open the link below in Safari, tap the “ᴀA” or puzzle icon at the left of the address bar → Userscripts → <strong>Install</strong>.</li>
+    </ol>
+    <div class="card"><a href="yzu.user.js">Install script: yzu.user.js</a></div>
+    <p class="note">From then on, just <a href="https://portalx.yzu.edu.tw/PortalSocialVB/Login.aspx">log in to the Portal</a> in Safari and the mobile version appears. To see the school's original page, tap “Original page” in the app. Switch the app between 中文 and English with the button at the top right.</p>
+    <p class="note">Grades, timetable, exams, attendance, syllabus, course search, clubs and equipment/venue booking live on the school's other site (portalfun) and open in a new tab — that's why step 2 also needs portalfun.yzu.edu.tw.</p>
+    <h2>Android</h2>
+    <ol>
+      <li>Download the app on your phone: <a href="https://github.com/jacksight/yzu-portal-mobile/releases/latest/download/yzu-portal.apk">yzu-portal.apk</a> (about 75 MB).</li>
+      <li>Open the downloaded file. When Android asks whether to allow installs from this source, choose <strong>Allow</strong>; if Play Protect warns you, choose <strong>Install anyway</strong> (it warns because the app isn't from the Play Store).</li>
+      <li>Open “元智Portal” and log in on the school's login page. Later updates download automatically — no reinstalling.</li>
+    </ol>
+  </section>
+</main>
+</body>
+</html>
