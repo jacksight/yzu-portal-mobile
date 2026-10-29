@@ -12,6 +12,10 @@ A phone-friendly version of Yuan Ze University's Portal. **Free, unofficial, no 
 - **Android**：下載 App · download the app →
   [yzu-portal.apk](https://github.com/jacksight/yzu-portal-mobile/releases/latest/download/yzu-portal.apk)
 
+## 更新紀錄 · Changelog
+
+[CHANGELOG.md](CHANGELOG.md)
+
 ## 安全 · Safety
 
 - 帳號密碼只在學校自己的登入頁輸入，沒有任何伺服器在中間幫你登入
